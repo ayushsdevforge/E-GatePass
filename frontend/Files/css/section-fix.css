@@ -1,0 +1,32 @@
+/* Fix for removing gaps between sections and footer */
+section {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.hero, 
+.admin-dashboard,
+.hod-dashboard,
+.tg-dashboard {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Ensure body has no extra margin/padding */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main content should take available space */
+main, section {
+  flex: 1;
+}
+
+/* Footer sticks to content */
+.footer {
+  margin-top: 0 !important;
+}

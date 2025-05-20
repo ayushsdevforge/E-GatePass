@@ -1,0 +1,218 @@
+/* Modern Navbar Effects and Animations */
+
+/* Sparkling effect */
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 35%, rgba(255, 215, 0, 0.2) 100%);
+  z-index: -2;
+  animation: rotate 15s linear infinite;
+}
+
+.navbar::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50L54 60L50 70L46 60z' fill='rgba(255, 215, 0, 0.3)'/%3E%3C/svg%3E"), 
+                  url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30L33 36L30 42L27 36z' fill='rgba(255, 215, 0, 0.25)'/%3E%3C/svg%3E");
+  background-position: 0 0, 30px 30px;
+  opacity: 0.7;
+  z-index: -1;
+  animation: sparkle 8s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    background-position: 0 0, 30px 30px;
+    opacity: 0.3;
+  }
+  50% {
+    background-position: 100px 100px, 130px 130px;
+    opacity: 0.5;
+  }
+  100% {
+    background-position: 200px 200px, 230px 230px;
+    opacity: 0.3;
+  }
+}
+
+/* Logo glow effect */
+.logo-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at center, rgba(255, 215, 0, 0.5) 0%, rgba(255, 215, 0, 0) 70%);
+  filter: blur(8px);
+  opacity: 0.9;
+  animation: pulse 3s infinite alternate;
+  z-index: 1;
+}
+
+/* Logo sparkles */
+.logo::before, .logo::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(255, 215, 0, 0.8);
+  box-shadow: 0 0 4px 2px rgba(255, 215, 0, 0.4);
+  z-index: 3;
+  opacity: 0;
+  animation: sparkle-float 4s ease-in-out infinite;
+}
+
+.logo::before {
+  top: 25%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.logo::after {
+  top: 60%;
+  left: 75%;
+  animation-delay: 1s;
+}
+
+@keyframes sparkle-float {
+  0%, 100% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Menu item hover effect */
+.menu-item-hover {
+  position: relative;
+  padding: 6px 0;
+  transition: all 0.3s ease;
+}
+
+.hover-indicator {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), #FFD700, var(--secondary-color));
+  background-size: 200% 100%;
+  transition: width 0.3s ease, transform 0.3s ease;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+  animation: gradient-shift 3s ease infinite;
+}
+
+.menu-item-hover:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item-hover:hover .hover-indicator {
+  width: 100%;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Button animations */
+.animated-btn {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 0 rgba(255, 215, 0, 0);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  margin-left: 10px;
+  flex-shrink: 0;
+  min-width: max-content;
+}
+
+.animated-btn::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #FFD700, transparent, #FFD700, transparent);
+  background-size: 400% 400%;
+  z-index: -1;
+  animation: border-animation 6s ease infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 22px;
+}
+
+.animated-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.animated-btn:hover::before {
+  opacity: 1;
+}
+
+@keyframes border-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .modern-navbar {
+    border-radius: 0;
+  }
+  
+  .navbar-blur-effect {
+    border-radius: 0;
+  }
+}

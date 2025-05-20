@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - GatePass System</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/navbar-modern.css" />
+    <link rel="stylesheet" href="css/auth-modal.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/section-fix.css" />
+    <link rel="stylesheet" href="css/line-effect.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="container1">
+        <div class="logo">
+          <a href="admin-dashboard.html">
+            <svg width="140" height="40" viewBox="0 0 140 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Gate icon -->
+              <rect x="8" y="8" width="14" height="24" rx="4" fill="#111111"/>
+              <rect x="22" y="8" width="20" height="24" rx="4" fill="#FFD700"/>
+              <g fill="#111111" font-family="'Montserrat', sans-serif" font-weight="800" letter-spacing="-0.2px">
+                <!-- E -->
+                <path d="M46 11H62V16H53V19H60V23H53V26H62V31H46V11Z" fill="#111111" stroke="#111111" stroke-width="0.7"/>
+                <!-- Hyphen -->
+                <rect x="63" y="20" width="9" height="3" fill="#111111"/>
+                <!-- P -->
+                <path d="M73 11H86C88.7614 11 91 13.2386 91 16V18C91 20.7614 88.7614 23 86 23H79V31H73V11Z" fill="#111111" stroke="#111111" stroke-width="0.7"/>
+                <path d="M80 18H85C85.5523 18 86 17.5523 86 17V16C86 15.4477 85.5523 15 85 15H80V18Z" fill="white"/>
+                <!-- A -->
+                <path d="M92 31L97 11H106L111 31H105L104 26H99L98 31H92Z" fill="#111111" stroke="#111111" stroke-width="0.7"/>
+                <path d="M100 22H103L101.5 16L100 22Z" fill="white"/>
+                <!-- First S -->
+                <path d="M113 12V16C113 18.2091 114.791 20 117 20H123C124.105 20 125 20.8954 125 22V27C125 29.2091 123.209 31 121 31H113V26H120C120.552 26 121 25.5523 121 25V24C121 23.4477 120.552 23 120 23H114C111.791 23 110 21.2091 110 19V14C110 12.3431 111.343 11 113 11H125V16H115C113.895 16 113 15.1046 113 14V12Z" fill="#111111" stroke="#111111" stroke-width="0.7"/>
+                <!-- Second S -->
+                <path d="M128 12V16C128 18.2091 129.791 20 132 20H138C139.105 20 140 20.8954 140 22V27C140 29.2091 138.209 31 136 31H128V26H135C135.552 26 136 25.5523 136 25V24C136 23.4477 135.552 23 135 23H129C126.791 23 125 21.2091 125 19V14C125 12.3431 126.343 11 128 11H140V16H130C128.895 16 128 15.1046 128 14V12Z" fill="#111111" stroke="#111111" stroke-width="0.7"/>
+              </g>
+              <!-- Security badge icon -->
+              <path d="M74 27.5C74 29.433 72.433 31 70.5 31C68.567 31 67 29.433 67 27.5C67 25.567 68.567 24 70.5 24C72.433 24 74 25.567 74 27.5Z" fill="#FFD700"/>
+              <path d="M70.5 9L74 12.5H67L70.5 9Z" fill="#FFD700"/>
+              <rect x="69.5" y="12" width="2" height="12" fill="#FFD700"/>
+            </svg>
+          </a>
+        </div>
+        <div class="main-menu">
+          <ul>
+            <li><a href="admin-dashboard.html">Home</a></li>
+            <li id="loginMenuItem"><a class="btn btn-primary nav-btn" href="#" id="signInBtn" onclick="showLoginModal(); return false;"><i class="fas fa-user"></i> Sign In</a></li>
+            <li id="logoutMenuItem" style="display: none;"><a class="btn btn-secondary nav-btn" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Admin Dashboard Section -->
+    <section class="admin-dashboard" style="display: none;">
+      <div class="container">
+        <div class="dashboard-header">
+          <h1 class="text-xl">Admin Dashboard</h1>
+          <div class="dashboard-stats">
+            <div class="stat-card">
+              <i class="fas fa-user-tie"></i>
+              <div class="stat-info">
+                <h3>Total HODs</h3>
+                <p id="totalHODs">0</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <i class="fas fa-chalkboard-teacher"></i>
+              <div class="stat-info">
+                <h3>Total TGs</h3>
+                <p id="totalTGs">0</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <i class="fas fa-user-graduate"></i>
+              <div class="stat-info">
+                <h3>Total Students</h3>
+                <p id="totalStudents">0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-content">
+
+
+          <div class="content-section">
+            <div class="section-header">
+              <h2>User Management</h2>
+              <div class="section-actions">
+                <div class="filter-controls">
+                  <label for="roleFilter">Filter by Role:</label>
+                  <select id="roleFilter" onchange="filterUsersByRole()">
+                    <option value="all">All Users</option>
+                    <option value="hod">HODs</option>
+                    <option value="tg">TGs</option>
+                    <option value="student">Students</option>
+                  </select>
+                </div>
+                <button class="btn btn-primary" id="addUserBtn">
+                  <i class="fas fa-user-plus"></i> Add User
+                </button>
+              </div>
+            </div>
+            <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="usersTableBody">
+                  <!-- Users will be populated here by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admin Login Modal -->
+    <div id="loginModal" class="modal auth-modal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close-modal" id="closeLoginModal" onclick="hideLoginModal(); return false;">&times;</button>
+          <div class="auth-tabs">
+            <button class="auth-tab active">Admin Sign In</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm" class="auth-form active" onsubmit="handleAdminLogin(event); return false;">
+            <h3 class="form-title">Admin Dashboard</h3>
+            <p class="form-subtitle">Sign in to access administrative controls</p>
+            
+            <div class="form-group">
+              <label for="adminEmail">Email Address</label>
+              <div class="input-with-icon">
+                <input type="email" id="adminEmail" placeholder="Enter your email" required>
+                <i class="fas fa-envelope"></i>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="adminPassword">Password</label>
+              <div class="input-with-icon">
+                <input type="password" id="adminPassword" placeholder="Enter your password" required>
+                <i class="fas fa-lock"></i>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" id="adminLoginBtn" class="btn btn-primary">
+                <i class="fas fa-sign-in-alt"></i> Sign In
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Add New User</h2>
+          <button class="close-modal" onclick="closeAddUserModal()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="addUserForm">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <div class="input-with-icon">
+                <input type="text" id="fullName" required>
+                <i class="fas fa-user"></i>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <div class="input-with-icon">
+                <input type="email" id="email" required>
+                <i class="fas fa-envelope"></i>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="role">Role</label>
+              <div class="input-with-icon">
+                <select id="role" required onchange="updateFormFields()">
+                  <option value="">Select Role</option>
+                  <option value="student">Student</option>
+                  <option value="tg">TG</option>
+                  <option value="hod">HOD</option>
+                </select>
+                <i class="fas fa-user-tag"></i>
+              </div>
+            </div>
+            <div id="passwordFieldContainer"></div>
+            <div class="form-group">
+              <label for="status">Status</label>
+              <div class="input-with-icon">
+                <select id="status" required>
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                </select>
+                <i class="fas fa-toggle-on"></i>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-user-plus"></i> Add User
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- TG Login Modal -->
+    <div id="tgLoginModal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeTgLoginModal()">&times;</span>
+        <h2>TG Login</h2>
+        <form id="tgLoginForm">
+          <div class="form-group">
+            <label for="tgLoginEmail">Email</label>
+            <input type="email" id="tgLoginEmail" required />
+          </div>
+          <div class="form-group">
+            <label for="tgLoginPassword">Password</label>
+            <input type="password" id="tgLoginPassword" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Login as TG</button>
+          <div id="tgLoginError" class="error-message" style="display:none;"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div id="editUserModal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeEditUserModal()">&times;</span>
+        <h2>Edit User</h2>
+        <form id="editUserForm">
+          <input type="hidden" id="editUserId" />
+          <div class="form-group">
+            <label for="editFullName">Full Name</label>
+            <input type="text" id="editFullName" required />
+          </div>
+          <div class="form-group">
+            <label for="editEmail">Email</label>
+            <input type="email" id="editEmail" required />
+          </div>
+          <div class="form-group">
+            <label for="editRole">Role</label>
+            <select id="editRole" required>
+              <option value="student">Student</option>
+              <option value="tg">TG</option>
+              <option value="hod">HOD</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editStatus">Status</label>
+            <select id="editStatus" required>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+          </div>
+          <div class="form-group" id="editPasswordField" style="display:none;">
+            <label for="editPassword">Reset Password</label>
+            <input type="password" id="editPassword" minlength="6" placeholder="Enter new password (optional)" />
+          </div>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/admin-dashboard.js"></script>
+    <script src="js/navbar-enhancement.js"></script>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <!-- Connect Section -->
+          <div class="connect-section">
+            <a href="https://github.com" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+
+          </div>
+          
+          <!-- Credit Section -->
+          <div class="credit-section">
+            <div class="made-with-love">
+              Made with <span class="heart">❤️</span> by <span class="author-name">Ayush Kumar Pandey</span>
+            </div>
+          </div>
+          
+          <!-- Copyright Section -->
+          <p class="copyright">&copy; 2025 GatePass System</p>
+        </div>
+      </div>
+    </footer>
+  
+    <!-- Scripts -->
+    <script src="js/admin-dashboard.js"></script>
+    <script src="js/footer-animation.js"></script>
+    <script src="js/navbar-enhancement.js"></script>
+  </body>
+</html>

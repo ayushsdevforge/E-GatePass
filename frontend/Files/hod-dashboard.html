@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOD Dashboard - GatePass System</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <!-- Custom CSS -->
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="css/auth-modal.css" />
+  <link rel="stylesheet" href="css/hod-dashboard.css" />
+  <link rel="stylesheet" href="css/navbar-modern.css" />
+  <link rel="stylesheet" href="css/section-fix.css" />
+  <link rel="stylesheet" href="css/change-password.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/line-effect.css" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+</head>
+<body>
+  <!-- Authentication Check Script moved to hod-dashboard.js -->
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container1">
+      <div class="logo">
+        <a href="hod-dashboard.html">
+          <svg width="160" height="40" viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Gate icon -->
+            <rect x="8" y="8" width="14" height="24" rx="4" fill="#111111"/>
+            <rect x="22" y="8" width="20" height="24" rx="4" fill="#FFD700"/>
+            <!-- E-PASS text with modern font -->
+            <g fill="#111111" font-family="'Montserrat', sans-serif" font-weight="800" letter-spacing="-0.2px">
+              <!-- E -->
+              <path d="M46 11H62V16H53V19H60V23H53V26H62V31H46V11Z" fill="#111111" stroke="#111111" stroke-width="0.7"/>
+              <!-- Hyphen -->
+              <rect x="63" y="20" width="9" height="3" fill="#111111"/>
+              <!-- P -->
+              <path d="M73 11H86C88.7614 11 91 13.2386 91 16V18C91 20.7614 88.7614 23 86 23H79V31H73V11Z" fill="#111111" stroke="#111111" stroke-width="0.7"/>
+              <path d="M80 18H85C85.5523 18 86 17.5523 86 17V16C86 15.4477 85.5523 15 85 15H80V18Z" fill="white"/>
+              <!-- A -->
+              <path d="M92 31L97 11H106L111 31H105L104 26H99L98 31H92Z" fill="#111111" stroke="#111111" stroke-width="0.7"/>
+              <path d="M100 22H103L101.5 16L100 22Z" fill="white"/>
+              <!-- First S -->
+              <path d="M113 12V16C113 18.2091 114.791 20 117 20H123C124.105 20 125 20.8954 125 22V27C125 29.2091 123.209 31 121 31H113V26H120C120.552 26 121 25.5523 121 25V24C121 23.4477 120.552 23 120 23H114C111.791 23 110 21.2091 110 19V14C110 12.3431 111.343 11 113 11H125V16H115C113.895 16 113 15.1046 113 14V12Z" fill="#111111" stroke="#111111" stroke-width="0.7"/>
+              <!-- Second S -->
+              <path d="M128 12V16C128 18.2091 129.791 20 132 20H138C139.105 20 140 20.8954 140 22V27C140 29.2091 138.209 31 136 31H128V26H135C135.552 26 136 25.5523 136 25V24C136 23.4477 135.552 23 135 23H129C126.791 23 125 21.2091 125 19V14C125 12.3431 126.343 11 128 11H140V16H130C128.895 16 128 15.1046 128 14V12Z" fill="#111111" stroke="#111111" stroke-width="0.7"/>
+            </g>
+            <!-- Security badge icon -->
+            <path d="M74 27.5C74 29.433 72.433 31 70.5 31C68.567 31 67 29.433 67 27.5C67 25.567 68.567 24 70.5 24C72.433 24 74 25.567 74 27.5Z" fill="#FFD700"/>
+            <path d="M70.5 9L74 12.5H67L70.5 9Z" fill="#FFD700"/>
+            <rect x="69.5" y="12" width="2" height="12" fill="#FFD700"/>
+          </svg>
+        </a>
+      </div>
+      <div class="main-menu">
+        <ul>
+          <li><a href="hod-dashboard.html">Home</a></li>
+          <li id="hodLogoutMenuItem" style="display:none;">
+            <a class="btn btn-secondary nav-btn" href="#" id="hodLogoutBtn">
+              <i class="fas fa-sign-out-alt"></i> Log Out
+            </a>
+          </li>
+          <li id="changePasswordMenuItem" style="display:none;">
+            <a class="btn btn-outline nav-btn" href="#" id="changePasswordBtn">
+              <i class="fas fa-key"></i> Change Password
+            </a>
+          </li>
+          <li id="hodLoginMenuItem">
+            <a class="btn btn-warning nav-btn" href="#" id="signInBtn" style="color: #000;" onclick="openSignInModal(); return false;">
+              <i class="fas fa-user"></i> Sign In
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-heading text-xxl">HOD Dashboard</h1>
+        <p class="hero-text">Please Login to access the HOD dashboard Content</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-primary" id="heroSignInBtn" onclick="openSignInModal(); return false;">Sign In</a>
+          <a href="#" class="btn" id="heroViewDashboardBtn" style="background-color: #FFD700; color: #111;">
+            <i class="fas fa-tachometer-alt"></i> View Dashboard
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sign In Modal -->
+  <div id="signInModal" class="auth-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close-modal" id="closeModalBtn" onclick="closeSignInModal(); return false;">&times;</button>
+        <div class="auth-tabs">
+          <button class="auth-tab active">Sign In</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm" class="auth-form active" onsubmit="event.preventDefault(); handleHODLogin(event); return false;">
+          <h3 class="form-title">HOD Login</h3>
+          <p class="form-subtitle">Sign in to access your dashboard</p>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <div class="input-with-icon">
+              <input type="email" id="email" placeholder="Enter your email" required />
+              <i class="fas fa-envelope"></i>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-with-icon">
+              <input type="password" id="password" placeholder="Enter your password" required />
+              <i class="fas fa-lock"></i>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-sign-in-alt"></i> Sign In
+            </button>
+          </div>
+          <div id="loginError" class="error-message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+      <div id="dashboardSection" class="dashboard-content">
+        <!-- Dashboard Stats -->
+        <div class="dashboard-header">
+          <h1 class="text-xl">HOD Dashboard</h1>
+          <div class="dashboard-stats">
+            <div class="stat-card">
+              <i class="fas fa-clock"></i>
+              <div class="stat-info">
+                <h3>Pending Requests</h3>
+                <p id="pendingRequestsCount">0</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <i class="fas fa-check-circle"></i>
+              <div class="stat-info">
+                <h3>Approved Passes</h3>
+                <p id="approvedPassesCount">0</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <i class="fas fa-ticket-alt"></i>
+              <div class="stat-info">
+                <h3>Total Requests</h3>
+                <p id="totalRequestsCount">0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        
+        <!-- Pending Requests Section -->
+        <div class="content-section">
+          <div class="section-header">
+            <h2>Pending Requests</h2>
+            <div class="section-actions">
+              <button id="refreshPendingRequests" class="btn btn-icon refresh-btn">
+                <i class="fas fa-sync-alt"></i>
+              </button>
+            </div>
+          </div>
+          <div class="table-container" style="max-height: 300px; overflow-y: auto;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Enrollment No.</th>
+                  <th>Reason</th>
+                  <th>Time</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="pendingRequestsTable">
+                <!-- Pending requests will be populated here by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- Approved Requests Section -->
+        <div class="content-section">
+          <div class="section-header">
+            <h2>Approved Requests</h2>
+            <div class="section-actions">
+              <button id="refreshApprovedRequests" class="btn btn-icon refresh-btn">
+                <i class="fas fa-sync-alt"></i>
+              </button>
+              <button id="clearApprovedHistory" class="btn btn-danger">
+                <i class="fas fa-trash"></i> Clear History
+              </button>
+            </div>
+          </div>
+          <div class="table-container" style="max-height: 300px; overflow-y: auto;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Enrollment No.</th>
+                  <th>Reason</th>
+                  <th>Status</th>
+                  <th>Token ID</th>
+                  <th>Date Approved</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody id="approvedRequestsTable">
+                <!-- Approved requests will be populated here by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- End of dashboardSection -->
+  </section>
+
+  <!-- Request Details Modal -->
+  <div id="requestDetailsModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Request Details</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="request-details">
+          <div class="detail-group">
+            <label>Student Name</label>
+            <p id="detailStudentName">Loading...</p>
+          </div>
+          <!-- Department section removed -->
+          <div class="detail-group">
+            <label>Enrollment Number</label>
+            <p id="detailEnrollment">Loading...</p>
+          </div>
+          <div class="detail-group">
+            <label>Reason</label>
+            <p id="detailReason">Loading...</p>
+          </div>
+          <div class="detail-group">
+            <label>Request Date</label>
+            <p id="detailDate">Loading...</p>
+          </div>
+          <div class="detail-group">
+            <label>Status</label>
+            <p id="detailStatus">Loading...</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="token-generation-section" id="tokenGenerationSection" style="display: none;">
+          <div class="detail-group">
+            <label>Gatepass Token</label>
+            <div class="token-display">
+              <p id="gatepassToken" class="token-value">------</p>
+              <p class="token-help-text">This 6-digit token will be sent to the student</p>
+            </div>
+          </div>
+        </div>
+        <div class="action-buttons">
+          <button id="approveRequestBtn" class="btn btn-success">
+            <i class="fas fa-check"></i>
+            Approve with Token
+          </button>
+          <button id="rejectRequestBtn" class="btn btn-danger">
+            <i class="fas fa-times"></i>
+            Reject
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div id="changePasswordModal" class="change-password-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Change Password</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="changePasswordForm">
+          <div class="form-group">
+            <label for="currentPassword">Current Password</label>
+            <div class="input-with-icon">
+              <input type="password" id="currentPassword" placeholder="Enter your current password" required>
+              <i class="fas fa-lock"></i>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <div class="input-with-icon">
+              <input type="password" id="newPassword" placeholder="Enter your new password" required>
+              <i class="fas fa-lock"></i>
+            </div>
+            <div class="password-strength">
+              <div class="password-strength-bar"></div>
+            </div>
+            <div class="password-strength-text">Password strength</div>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm New Password</label>
+            <div class="input-with-icon">
+              <input type="password" id="confirmPassword" placeholder="Confirm your new password" required>
+              <i class="fas fa-lock"></i>
+            </div>
+          </div>
+          <div id="passwordError" class="error-message"></div>
+          <div id="passwordSuccess" class="success-message"></div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-key"></i> Change Password
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/request-bridge.js"></script>
+  <script src="js/hod-dashboard.js"></script>
+  <script src="js/navbar-enhancement.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/change-password.js"></script>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Connect Section -->
+        <div class="connect-section">
+          <a href="https://github.com" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+        </div>
+        
+        <!-- Credit Section -->
+        <div class="credit-section">
+          <div class="made-with-love">
+            Made with <span class="heart">❤️</span> by <span class="author-name">Ayush Kumar Pandey</span>
+          </div>
+        </div>
+        
+        <!-- Copyright Section -->
+        <p class="copyright">&copy; 2025 GatePass System</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Footer Scripts -->
+  <script src="js/footer-animation.js"></script>
+  <script src="js/footer-background.js"></script>
+</body>
+</html>

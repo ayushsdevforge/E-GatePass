@@ -1,0 +1,37 @@
+{
+  "name": "gatepass-system-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for GatePass Management System",
+  "scripts": {
+    "start": "live-server --port=3000 --open=\"public\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "format": "prettier --write \"**/*.{js,html,css}\""
+  },
+  "keywords": [
+    "gatepass",
+    "education",
+    "management",
+    "frontend",
+    "javascript"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/gatepass-system"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/gatepass-system/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "live-server": "^1.2.2",
+    "prettier": "^2.7.1"
+  }
+}

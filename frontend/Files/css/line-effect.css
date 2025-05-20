@@ -1,0 +1,46 @@
+/* Line Effect Styles */
+.hero-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #FFD700;
+  box-shadow: 8px 4px 8px rgba(255, 215, 0, 0.5);
+  animation: lineExpand 1.5s forwards cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes lineExpand {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    width: 20%;
+  }
+  100% {
+    width: 60%;
+    opacity: 1;
+  }
+}
+
+/* Apply the same line effect to other section headings */
+.section-heading::after,
+.form-title::after,
+h2.heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #FFD700;
+  box-shadow: 0 1px 3px rgba(255, 215, 0, 0.5);
+  animation: lineExpand 1.5s forwards cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+
